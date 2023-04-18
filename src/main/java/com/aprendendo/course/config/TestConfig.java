@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+
+import com.aprendendo.course.entities.OrderStatus;
 import com.aprendendo.course.entities.User;
 import com.aprendendo.course.entities.order;
 
@@ -28,9 +30,9 @@ public class TestConfig implements CommandLineRunner{
 		User u2 = new User(null, "Alex Green", "alex@gmail.com", "977777777", "123456"); 
 		
 		
-		order o1 = new order(null, Instant.parse("2019-06-20T19:53:07Z"), u1); 
-		order o2 = new order(null, Instant.parse("2019-07-21T03:42:10Z"), u2); 
-		order o3 = new order(null, Instant.parse("2019-07-22T15:21:22Z"), u1);
+		order o1 = new order(null, Instant.parse("2019-06-20T19:53:07Z"),OrderStatus.DELIVERED, u1); 
+		order o2 = new order(null, Instant.parse("2019-07-21T03:42:10Z"),OrderStatus.DELIVERED, u2); 
+		order o3 = new order(null, Instant.parse("2019-07-22T15:21:22Z"),OrderStatus.DELIVERED, u1);
 		
 		userRepository.saveAll(Arrays.asList(u1,u2));
 		orderRepository.saveAll(Arrays.asList(o1, o2, o3));
