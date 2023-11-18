@@ -5,7 +5,6 @@ import java.time.Instant;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,7 +16,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tb_order")
-public class order implements Serializable {
+public class Order implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -34,11 +33,11 @@ public class order implements Serializable {
 	@JoinColumn(name = "client_id")
 	private User client;
 	
-	public order() {
+	public Order() {
 		
 	}
 
-	public order(Long id, Instant moment,OrderStatus status, User client) {
+	public Order(Long id, Instant moment, OrderStatus status, User client) {
 		super();
 		this.id = id;
 		this.moment = moment;
@@ -93,7 +92,7 @@ public class order implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		order other = (order) obj;
+		Order other = (Order) obj;
 		return Objects.equals(id, other.id);
 	}
 

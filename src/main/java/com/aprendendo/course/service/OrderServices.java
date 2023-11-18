@@ -5,22 +5,22 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.aprendendo.course.entities.order;
-import com.aprendendo.course.repositeries.orderRepository;
+import com.aprendendo.course.entities.Order;
+import com.aprendendo.course.repositeries.OrderRepository;
 
 
 @Component
-public class orderServices {
+public class OrderServices {
 	
 	@Autowired
-	private orderRepository repository;
+	private OrderRepository repository;
 	
 	
-	public List<order> findAll(){
+	public List<Order> findAll(){
 		return repository.findAll();
 	}
-	public order findById(Long id) {
-		Optional<order> obj = repository.findById(id);
+	public Order findById(Long id) {
+		Optional<Order> obj = repository.findById(id);
 		return obj.get();
 	}
 	
